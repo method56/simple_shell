@@ -73,12 +73,12 @@ char *find(char *cname)
 }
 
 /**
-  * exec - Executes a command
-  * @cname: The command to execute
-  * @opts: The options or flags to the command
-  *
-  * Return: A integer status value
-  */
+ * exec - Executes a command
+ * @cname: The command to execute
+ * @opts: The options or flags to the command
+ *
+ * Return: An integer status value
+ */
 int exec(char *cname, char **opts)
 {
 	pid_t child;
@@ -86,17 +86,16 @@ int exec(char *cname, char **opts)
 
 	switch (child = fork())
 	{
-		case -1:
-		    perror("Error creating child process");
-	            exit(EXIT_FAILURE); 
-		case 0:
-		    execve(cname, opts, environ);
-		    /* Add break statement */
-		    break;
-		default:
-		    wait(&status);
-		    break;
-			
+	case -1:
+		perror("Error creating child process");
+		exit(EXIT_FAILURE);
+	case 0:
+		execve(cname, opts, environ);
+		/* Add break statement */
+		break;
+	default:
+		wait(&status);
+		break;
 	}
 
 	return (0);

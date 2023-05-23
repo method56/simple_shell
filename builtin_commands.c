@@ -5,12 +5,12 @@
  * @u_tokns: ...
  * @line: ...
  *
- * Return: 1 if is a built-in command or 0 if not
+ * Return: 1 if it is a built-in command or 0 if not
  */
 int execBuiltInCommands(char **u_tokns, char *line)
 {
 	int i = 0;
-	char *ListBuiltinCmds[] = { "exit", "cd", "help", "env", NULL };
+	char *ListBuiltinCmds[] = {"exit", "cd", "help", "env", NULL};
 
 	while (ListBuiltinCmds[i])
 	{
@@ -18,20 +18,20 @@ int execBuiltInCommands(char **u_tokns, char *line)
 		{
 			switch (i)
 			{
-				case 0:
-					_handle_exit(u_tokns, line);
-                                        break;
-				case 1:
-					chdir(u_tokns[1]);
-					return (1);
-				case 2:
-					_open_help();
-					return (1);
-				case 3:
-					_print_env();
-					return (1);
-				default:
-					break;
+			case 0:
+				_handle_exit(u_tokns, line);
+				break;
+			case 1:
+				chdir(u_tokns[1]);
+				return (1);
+			case 2:
+				_open_help();
+				return (1);
+			case 3:
+				_print_env();
+				return (1);
+			default:
+				break;
 			}
 		}
 		i++;

@@ -3,9 +3,9 @@
 /**
  * _help - Opens the Shell help
  *
- * Return: Nothing to returns
+ * Return: Nothing
  */
-void _open_help(void)
+void _help(void)
 {
-	_puts("\n***WELCOME TO THE SHELL HELP***\n");
+	_puts("\n*** WELCOME TO THE SHELL HELP ***\n");
 }
